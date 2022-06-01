@@ -7,13 +7,14 @@ import 'package:e_commerce/view/screens/auth/signup_screen.dart';
 import 'package:e_commerce/view/screens/cart_screen.dart';
 import 'package:e_commerce/view/screens/main_screen.dart';
 import 'package:e_commerce/view/screens/payment_screen.dart';
+import 'package:e_commerce/view/screens/splash_screen.dart';
 import 'package:e_commerce/view/screens/welcome_screen.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
 //initialRoute
 //getPages
-
+  static const splash = Routes.splashScreen;
   static const welcome = Routes.welcomeScreen;
   static const mainScreen = Routes.mainScreen;
   static final routes = [
@@ -65,6 +66,15 @@ class AppRoutes {
       ],
     ),
 
+    GetPage(
+      name: Routes.splashScreen,
+      page: () => SplashScreen(),
+      bindings: [
+        AuthBinding(),
+        MainBininding(),
+        ProductBinding(),
+      ],
+    ),
   ];
 }
 
@@ -76,5 +86,6 @@ class Routes {
   static const mainScreen = '/mainScreen';
   static const cartScreen = '/cartScreen';
   static const paymentScreen = '/paymentScreen';
+  static const splashScreen = '/splashScreen';
 
 }

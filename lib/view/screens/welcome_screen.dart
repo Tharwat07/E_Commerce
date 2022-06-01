@@ -3,8 +3,11 @@ import 'package:e_commerce/utils/theme.dart';
 import 'package:e_commerce/view/widgetes/text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -15,8 +18,8 @@ class WelcomeScreen extends StatelessWidget {
               height: double.infinity,
               width: double.infinity,
               child: Image.asset(
-                'assets/images/background.png',
-                fit: BoxFit.cover,
+                'assets/images/imag.jpg',
+                fit: BoxFit.fill,
               ),
             ),
             Container(
@@ -49,7 +52,7 @@ class WelcomeScreen extends StatelessWidget {
                       height: 10,
                     ),
                     Container(
-                      height: 70,
+                      height: 60,
                       width: 300,
                       decoration: BoxDecoration(
                         color: Colors.black.withOpacity(0.3),
@@ -60,7 +63,7 @@ class WelcomeScreen extends StatelessWidget {
                         children: [
                           TextUtils(
                             underline: TextDecoration.none,
-                            color:Get.isDarkMode ? pinkClr :mainColor ,
+                            color: Get.isDarkMode ? pinkClr : mainColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 25,
                             text: 'E Commerce'.tr,
@@ -78,25 +81,35 @@ class WelcomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 250),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Get.isDarkMode ? pinkClr :mainColor ,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
+                    SizedBox(
+                        height: 400,
+                        width: 500,
+                        child: Center(
+                          child: Lottie.network("https://assets6.lottiefiles.com/private_files/lf30_ijwulw45.json"),
                         ),
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 40, vertical: 5),
-                      ),
-                      onPressed: () {
-                        Get.offNamed(Routes.loginScreen);
-                      },
-                      child: TextUtil(
-                        underline: TextDecoration.none,
-                        text: 'Get Started'.tr,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
+                    ),
+                    SizedBox(
+                      height: 50,
+                      width: 300,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Get.isDarkMode ? pinkClr : mainColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 40, vertical: 5),
+                        ),
+                        onPressed: () {
+                          Get.offNamed(Routes.loginScreen);
+                        },
+                        child: TextUtil(
+                          underline: TextDecoration.none,
+                          text: 'Get Started'.tr,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 25),
@@ -109,15 +122,18 @@ class WelcomeScreen extends StatelessWidget {
                             fontSize: 18,
                             fontWeight: FontWeight.normal,
                             color: Colors.white),
-                        TextButton(onPressed: (){
-                          Get.offNamed(Routes.signUpScreen);
-                        },
-                            child: TextUtil(
-                              underline: TextDecoration.underline,
-                                text: 'Sign Up'.tr,
-                                fontSize: 20,
-                                fontWeight: FontWeight.normal,
-                                color:Get.isDarkMode ? pinkClr :mainColor ,),)
+                        TextButton(
+                          onPressed: () {
+                            Get.offNamed(Routes.signUpScreen);
+                          },
+                          child: TextUtil(
+                            underline: TextDecoration.underline,
+                            text: 'Sign Up'.tr,
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                            color: Get.isDarkMode ? pinkClr : mainColor,
+                          ),
+                        )
                       ],
                     ),
                   ],
