@@ -2,7 +2,7 @@ import 'package:e_commerce/logic/controller/product_controller.dart';
 import 'package:e_commerce/utils/theme.dart';
 import 'package:e_commerce/view/widgetes/text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_simple_rating_bar/flutter_simple_rating_bar.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 
@@ -55,7 +55,7 @@ class ClothesInfo extends StatelessWidget {
                       controller.mangeFav(productId);
                     },
                     child: controller.isFav(productId)
-                        ? Icon(
+                        ? const Icon(
                             Icons.favorite,
                       color:Colors.red,
                           )
@@ -72,29 +72,27 @@ class ClothesInfo extends StatelessWidget {
             children: [
               TextUtil(
                   text: "$rate",
-                  fontSize: 14,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Get.isDarkMode ? Colors.white : Colors.black,
                   underline: TextDecoration.none),
               const SizedBox(
                 width: 10,
               ),
-              RatingBar(
-                rating: rate,
-                icon: const Icon(
-                  Icons.star,
-                  size: 20,
-                  color: Colors.grey,
-                ),
-                starCount: 5,
-                spacing: 1,
-                size: 20,
-                isIndicator: false,
+              RatingBar.builder(
+                initialRating: rate,
+                minRating: 1,
+                direction: Axis.horizontal,
                 allowHalfRating: true,
-                onRatingCallback: (value, isIndictor) {
-                  isIndictor.value = true;
+                itemCount: 5,
+                itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                itemBuilder: (context, _) => const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                onRatingUpdate: (rating) {
+                  rating = rate;
                 },
-                color: Colors.orangeAccent,
               ),
             ],
           ),
