@@ -17,3 +17,13 @@ samples, guidance on mobile development, and a full API reference.
 
 This is an E_Commerce App
 
+1) MVC
+2) GetX 
+3) Firebase 
+4) API
+5) Login with Google & Facebook , Twitter (UI Only)
+6) Search items 
+7) Light & dark mode 
+8) Languages (Arabic, english and french)
+9) Payment Methods (UI Only)
+10) User Location
